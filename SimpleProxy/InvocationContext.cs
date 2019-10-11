@@ -136,7 +136,11 @@
         /// <returns></returns>
         public object GetTemporaryData(string name)
         {
-            return this.TempData.GetValueOrDefault(name);
+            object value;
+
+            this.TempData.TryGetValue(name, out value);
+
+            return value;
         }
 
         /// <summary>
